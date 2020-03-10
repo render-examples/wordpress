@@ -38,11 +38,6 @@ services:
     mountPath: /var/lib/mysql
     sizeGB: 20
   envVars:
-  - fromGroup: mysql-wordpress
-
-envVarGroups:
-- name: mysql-wordpress
-  envVars:
   - key: MYSQL_DATABASE
     value: mysql
   - key: MYSQL_USER
