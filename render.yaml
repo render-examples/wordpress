@@ -14,11 +14,20 @@ services:
       type: pserv
       property: host
   - key: WORDPRESS_DB_NAME
-    value: mysql
+    fromService:
+      name: mysql-wordpress
+      type: pserv
+      envVarKey: MYSQL_DATABASE
   - key: WORDPRESS_DB_USER
-    value: mysql
+    fromService:
+      name: mysql-wordpress
+      type: pserv
+      envVarKey: MYSQL_USER
   - key: WORDPRESS_DB_PASSWORD
-    value: mysql
+    fromService:
+      name: mysql-wordpress
+      type: pserv
+      envVarKey: MYSQL_PASSWORD
 - type: pserv
   name: mysql-wordpress
   repo: https://github.com/render-examples/mysql.git
@@ -28,11 +37,6 @@ services:
     name: mysql-wordpress
     mountPath: /var/lib/mysql
     sizeGB: 20
-  envVars:
-  - fromGroup: mysql-wordpress
-
-envVarGroups:
-- name: mysql-wordpress
   envVars:
   - key: MYSQL_DATABASE
     value: mysql
