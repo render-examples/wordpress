@@ -21,6 +21,7 @@ services:
     value: mysql
 - type: pserv
   name: mysql-wordpress
+  repo: https://github.com/render-examples/mysql.git
   env: docker
   plan: standard
   disk:
