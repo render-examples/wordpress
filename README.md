@@ -10,4 +10,6 @@ This is a template repository for running [Wordpress](https://wordpress.org) on 
 
 ## Deployment
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
 See https://render.com/docs/deploy-wordpress.
