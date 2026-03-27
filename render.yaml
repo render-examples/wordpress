@@ -2,12 +2,17 @@ services:
 - type: web
   name: wordpress
   env: docker
-  plan: standard
+  plan: starter
   autoDeploy: false
   disk:
     name: wordpress
     mountPath: /var/www/html
-    sizeGB: 20
+    sizeGB: 5
+  envVars:
+  - key: WORDPRESS_CONFIG_EXTRA
+    value: |
+      upload_max_filesize = 64M;
+      post_max_size = 64M;
   envVars:
   - key: WORDPRESS_DB_HOST
     fromService:
@@ -33,17 +38,17 @@ services:
   name: mysql-wordpress
   repo: https://github.com/render-examples/mysql.git
   env: docker
-  plan: standard
+  plan: starter
   autoDeploy: false
   disk:
     name: mysql-wordpress
     mountPath: /var/lib/mysql
-    sizeGB: 20
+    sizeGB: 5
   envVars:
   - key: MYSQL_DATABASE
-    value: mysql
+    value: wp_db
   - key: MYSQL_USER
-    value: mysql
+    value: wp_user
   - key: MYSQL_PASSWORD
     generateValue: true
   - key: MYSQL_ROOT_PASSWORD
