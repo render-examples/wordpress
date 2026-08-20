@@ -1,5 +1,6 @@
-# Use official WordPress image with PHP 8.3 and Apache
-FROM wordpress:php8.3-apache
+# You can change this to a different version of Wordpress available at
+# https://hub.docker.com/_/wordpress
+FROM wordpress:latest
 
 # Install necessary packages as root
 RUN apt-get update && apt-get install -y magic-wormhole
